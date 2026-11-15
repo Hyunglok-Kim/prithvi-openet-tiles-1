@@ -3,11 +3,15 @@
 Numeric map tiles for the [Prithvi-OpenET-Tower data portal](https://github.com/Hyunglok-Kim/prithvi-openet-portal): 30 m monthly
 evapotranspiration of the Korean Peninsula, 2013-04 to 2026-08, reduced to zoom 3–10
 so that it fits on GitHub Pages. The full set goes to zoom 12 (30 m).
+2 small areas (Cheorwon, Anmyeon) keep the native zoom 12 in the `*.fine.pmtiles` files; outside their outlines those tiles repeat zoom 10.
 
 One PMTiles file per month (`monthly/`) and per climatology layer (`clim/`). A tile is an 8-bit
 grayscale PNG that holds values, not colours: `value = DN × dn_step`, `DN 255 = no data`.
 These tiles are for looking, not for analysis — they are resampled to Web Mercator, averaged and
 rounded. Use the GeoTIFFs for any calculation; they will be released with the paper.
+
+`background/` holds a different product, MOD16A2GF (MODIS/Terra Net Evapotranspiration, gap-filled (MOD16A2GF v061), NASA LP DAAC), as a coarse backdrop for the rest of the
+globe. It is not Prithvi-OpenET-Tower output.
 
 Made by `pipeline/make_preview_copy.py` of the portal repository from data version `prototype-2026-11-15`.
 Do not edit by hand: rebuild and replace.
